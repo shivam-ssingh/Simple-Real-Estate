@@ -76,6 +76,13 @@ body {
   vertical-align: bottom;
 }
 
+@media screen and (max-width: 600px) {
+  .header-options {
+    visibility: hidden;
+    display: none;
+  }
+}
+
 .nav-header {
   background-color: #0a1e23;
   display: flex;
