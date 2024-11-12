@@ -76,10 +76,14 @@ body {
   vertical-align: bottom;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 725px) {
   .header-options {
     visibility: hidden;
     display: none;
+  }
+
+  .detail-image {
+    height: 30vh;
   }
 }
 
