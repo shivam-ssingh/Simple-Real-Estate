@@ -70,7 +70,7 @@ function displayDetails() {
                 <p>Location: ${selectedListing.location}</p>
                 <p>Price: ${selectedListing.price}</p>
                 <p>Description: ${selectedListing.description}</p>
-                <button onclick="bookAppointment()">Book Appointment</button>
+                <button onclick="bookAppointment( ${selectedListing.id})">Book Appointment</button>
                 </div>
             `;
         detailsContainer.innerHTML = finalImageList + detailSection;
@@ -85,8 +85,9 @@ function getHashParam(param) {
   return hashParams.get(param);
 }
 
-function bookAppointment() {
-  alert("Appointment booked!");
+function bookAppointment(id, name) {
+  window.location.href = `appointment.html#id=${id}`;
+  //   alert("Appointment booked!");
 }
 
 // Display listings on home page

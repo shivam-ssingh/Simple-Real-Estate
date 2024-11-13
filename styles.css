@@ -5,10 +5,13 @@ body {
   background-color: #afdde9;
 }
 
+main {
+  padding: 20px;
+}
+
 #listing-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
   justify-content: space-between;
 }
 
@@ -53,10 +56,6 @@ body {
 }
 
 /* ////////////// */
-
-#details-container {
-  padding: 20px;
-}
 
 .detail-image-list {
   list-style: none;
@@ -113,4 +112,37 @@ body {
 .header-options a {
   color: #ffffff;
   text-decoration: none;
+}
+
+#contact-form-container {
+  display: flex;
+  padding: 20px;
+}
+
+.contact-form-content {
+  width: 80vh;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+}
+
+.contact-form button {
+  background-color: #0a1e23;
+  text-align: center;
+  color: #ffffff;
+  border: 2px solid #0a0a23;
+  margin: 0px;
+  display: block;
+  cursor: pointer;
+}
+
+input {
+  height: 50px;
+}
+
+label {
+  padding: 5px;
 }
