@@ -9,6 +9,8 @@ main {
   padding: 20px;
 }
 
+/* main page styles */
+
 #listing-container {
   display: flex;
   flex-wrap: wrap;
@@ -55,7 +57,7 @@ main {
   cursor: pointer;
 }
 
-/* ////////////// */
+/* Detail page style*/
 
 .detail-image-list {
   list-style: none;
@@ -87,6 +89,8 @@ main {
   }
 }
 
+/* header style */
+
 .nav-header {
   background-color: #0a1e23;
   display: flex;
@@ -114,6 +118,8 @@ main {
   text-decoration: none;
 }
 
+/* appointment page style */
+
 #contact-form-container {
   display: flex;
   padding: 20px;
@@ -140,7 +146,7 @@ main {
 }
 
 input {
-  height: 50px;
+  height: 35px;
 }
 
 label {
