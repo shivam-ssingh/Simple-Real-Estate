@@ -99,3 +99,8 @@ if (document.getElementById("listing-container")) {
 if (document.getElementById("details-container")) {
   displayDetails();
 }
+
+function showAlert(event) {
+  console.log(event);
+  alert("Form submitted successfully!");
+}
