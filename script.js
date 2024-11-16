@@ -1,27 +1,3 @@
-// const listings = [
-//   {
-//     id: 1,
-//     title: "Luxury Apartment",
-//     location: "New York",
-//     price: "$500,000",
-//     description: "A beautiful luxury apartment in the heart of New York.",
-//   },
-//   {
-//     id: 2,
-//     title: "Cozy Cottage",
-//     location: "Vermont",
-//     price: "$300,000",
-//     description: "A cozy cottage surrounded by nature.",
-//   },
-//   {
-//     id: 3,
-//     title: "Modern House",
-//     location: "California",
-//     price: "$750,000",
-//     description: "A modern house with all amenities.",
-//   },
-// ];
-
 function displayListings() {
   fetch("./Data/Listing.json")
     .then((res) => res.json())
@@ -33,9 +9,11 @@ function displayListings() {
         card.className = "card";
         card.innerHTML = `
                   <img src=${listing.featuredImage}>
+                  <div class="card-content">
                   <h2>${listing.name}</h2>
                   <p>Location: ${listing.location}</p>
                   <p>Price: ${listing.price}</p>
+                  </div>
                   <button onclick="viewDetails(${listing.id})">View Details</button>
               `;
         container.appendChild(card);
@@ -70,7 +48,7 @@ function displayDetails() {
                 <p>Location: ${selectedListing.location}</p>
                 <p>Price: ${selectedListing.price}</p>
                 <p>Description: ${selectedListing.description}</p>
-                <button onclick="bookAppointment( ${selectedListing.id})">Book Appointment</button>
+                <button onclick="openForm( ${selectedListing.id})">Book Appointment</button>
                 </div>
             `;
         detailsContainer.innerHTML = finalImageList + detailSection;
@@ -100,7 +78,54 @@ if (document.getElementById("details-container")) {
   displayDetails();
 }
 
+function openForm() {
+  if (document.getElementById("booking-form")) {
+    document.getElementById("booking-form").style.display = "block";
+  }
+}
+
+function closeForm() {
+  if (document.getElementById("booking-form")) {
+    document.getElementById("mainForm").reset();
+    document.getElementById("booking-form").style.display = "none";
+  }
+}
+
 function showAlert(event) {
+  event.preventDefault();
   console.log(event);
+
+  const formData = new FormData(event.target);
+  const dataObject = Object.fromEntries(formData.entries());
+
+  console.log(dataObject);
+
   alert("Form submitted successfully!");
+  closeForm();
+  showAppointment(dataObject);
+}
+
+function showAppointment(form) {
+  const appointmentTable = document.createElement("div");
+  appointmentTable.className = "booking-table";
+  const appointmentDateTimeHTML = `
+    <p> Your appointment is: </p>
+    <table id="dataTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+      <td>${form.name}</td>
+      <td>${form.date}</td>
+      <td>${form.time}</td>
+    </tbody>
+    </table>
+`;
+  appointmentTable.innerHTML = appointmentDateTimeHTML;
+
+  document.getElementById("details-container").append(appointmentTable);
 }

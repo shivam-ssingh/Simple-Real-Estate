@@ -9,17 +9,76 @@
   <body>
     <header>
       <nav class="nav-header">
-        <div class="logo"><h1>Regular Real Estate Company</h1></div>
+        <div class="logo">
+          <h1 onclick="window.location.href='/index.html'">
+            Regular Real Estate Company
+          </h1>
+        </div>
         <div class="header-options">
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main id="details-container"></main>
+
+    <div class="form-popup" id="booking-form">
+      <form onsubmit="showAlert(event)" class="form-container" id="mainForm">
+        <h1>Book Appointment</h1>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required />
+
+        <label for="email"><b>Email</b></label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          name="email"
+          required
+        />
+
+        <label for="date"><b>Date</b></label>
+        <input type="date" name="date" required />
+
+        <label for="time"><b>Time</b></label>
+        <input type="time" name="time" required />
+
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div>
+
+    <!-- <div id="booking-form" style="display: none">
+      <form class="contact-form" onsubmit="showAlert(event)">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="date"><b>Date</b></label>
+        <input type="date" name="date" required />
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required />
+
+        <label for="message">Additional Message:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit">Book Appointment</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div> -->
+
     <script src="script.js"></script>
   </body>
 </html>
